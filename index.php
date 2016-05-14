@@ -152,7 +152,7 @@ $result = $conn->query($sql);
                            echo "<div class=\"row\">
                         <div class=\"col-xs-2\" style=\"text-align: center !important;\"><i class=\"fa fa-eye fa-4x\" aria-hidden=\"true\" ></i></div>
                         <div class=\"col-xs-10\">
-                            <a href=\"news-item.php\">".$row['heading']."</a>
+                            <a href='news-item.php?id=".$row['id']."'>".$row['heading']."</a>
                             <p class=\"lead\" style='font-size:12px;'>".$row['small']."</p>
                             <hr style=\"padding-left:30px;\">
                         </div>
