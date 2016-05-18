@@ -113,7 +113,18 @@ $result = $conn->query($sql);
             <i class="fa fa-chevron-right"></i>
         </a>
     </section><!--/#main-slider-->
-
+    <div class="row" style="background-color: #27AE60; height: 30px; color: #080808; padding-top: 5px;">
+        <?php
+        if ($result->num_rows > 0) {
+            echo '<marquee>';
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo '<a href="news-item.php?id='.$row['id'].'" style="color: #080808;">'.$row['heading'].'</a>';
+            }
+            echo '</marquee>';
+        }
+        ?>
+    </div>
     <section id="feature" style="background-color: #FFFFFF;">
         <div class="container">
            <div class="center wow fadeInDown">
