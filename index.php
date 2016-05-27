@@ -1,8 +1,14 @@
 <?php
 include ('admin/php/config.php');
 
-$sql = "SELECT * FROM news ORDER BY id DESC LIMIT 2 ";
+$sql = "SELECT * FROM news ORDER BY id DESC";
 $result = $conn->query($sql);
+
+$sql2 = "SELECT * FROM news ORDER BY id DESC LIMIT 10 ";
+$result2 = $conn->query($sql2);
+
+$sql3 = "SELECT * FROM news ORDER BY id DESC LIMIT 1 ";
+$result3 = $conn->query($sql3);
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +33,7 @@ $result = $conn->query($sql);
     <![endif]-->
 </head><!--/head-->
 
-<body class="homepage">
+<body class="homepage" style="overflow-x: hidden;">
 
     <header id="header">
         <div class="top-bar" style="background-color:#255625;">
@@ -113,18 +119,26 @@ $result = $conn->query($sql);
             <i class="fa fa-chevron-right"></i>
         </a>
     </section><!--/#main-slider-->
-    <div class="row" style="background-color: #27AE60; height: 30px; color: #080808; padding-top: 5px;">
-        <?php
-        if ($result->num_rows > 0) {
-            echo '<marquee>';
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo '<a href="news-item.php?id='.$row['id'].'" style="color: #080808;">'.$row['heading'].'</a>';
-            }
-            echo '</marquee>';
-        }
-        ?>
+
+    <div class="container-fluid" style="background-color: #27AE60; height: 30px; color: #080808; padding-top: 5px;">
+        <div class="row">
+            <div class="col-xs-12">
+                <?php
+                if ($result->num_rows > 0) {
+                    echo '<marquee>';
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "***";
+                        echo '<a href="news-item.php?id='.$row['id'].'" style="color: #080808;">'.$row['heading'].'</a>';
+                        echo "\t\t\t\t";
+                    }
+                    echo '</marquee>';
+                }
+                ?>
+            </div>
+        </div>
     </div>
+
     <section id="feature" style="background-color: #FFFFFF;">
         <div class="container">
            <div class="center wow fadeInDown">
@@ -150,17 +164,38 @@ $result = $conn->query($sql);
         </div>
     </section>
 
-    <section id="recent-works" style="margin-top:40px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-xs-12">
-                    <h3>News</h3>
-                    <hr>
-                    <?php
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                           echo "<div class=\"row\">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-9 col-xs-12">
+                <section id="recent-works" style="margin-top:40px; padding-left:20px;">
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <?php
+                            if ($result->num_rows > 0) {
+                                echo '<marquee>';
+                                // output data of each row
+                                while($row = $result->fetch_assoc()) {
+                                    echo "***";
+                                    echo '<a href="news-item.php?id='.$row['id'].'" style="color: #080808;">'.$row['heading'].'</a>';
+                                    echo "\t\t\t\t";
+                                }
+                                echo '</marquee>';
+                            }
+                            ?>
+                        </div>
+                        <div class="col-xs-4">
+
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col-sm-7 col-xs-12">
+                                <h3>News</h3>
+                                <hr>
+                                <?php
+                                if ($result2->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $result2->fetch_assoc()) {
+                                        echo "<div class=\"row\">
                         <div class=\"col-xs-2\" style=\"text-align: center !important;\"><i class=\"fa fa-eye fa-4x\" aria-hidden=\"true\" ></i></div>
                         <div class=\"col-xs-10\">
                             <a href='news-item.php?id=".$row['id']."'>".$row['heading']."</a>
@@ -168,49 +203,55 @@ $result = $conn->query($sql);
                             <hr style=\"padding-left:30px;\">
                         </div>
                     </div>";
-                        }
-                    }
+                                    }
+                                }
 
-                    ?>
+                                ?>
 
-                    <a href="news.php"><h4>Read More ....</h4></a>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                    <h3>Youtube Channel</h3>
-                    <hr>
-                    <div>
-                        <iframe src="http://www.youtube.com/embed/playlist?list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:300px;;"></iframe>
-                    </div>
-                </div>
+                                <a href="news.php"><h4>Read More ....</h4></a>
+                            </div>
+                            <div class="col-sm-5 col-xs-12" style="padding-right:20px;">
+                                <h3>Youtube Channel</h3>
+                                <hr>
+                                <div>
+                                    <iframe src="http://www.youtube.com/embed/playlist?list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:300px;"></iframe>
+                                </div>
+                                <div>
+                                    <iframe src="https://www.youtube.com/embed/watch?v=X2GJ5B717OU&list=UUwiLluuQWuQTROY9ZEaGOyw&index=3"  style="width:100%; height:300px;"></iframe>
+                                </div>
+                                <div>
+                                    <iframe src="http://www.youtube.com/embed/watch?v=BFbFFHiOAmU&index=4&list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:300px;;"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </section><!--/#recent-works-->
             </div>
-        </div><!--/.container-->
-    </section><!--/#recent-works-->
-
-    <section id="fb">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 col-xs-12">
-                    <h3>My Facebook Page</h3>
-                    <hr>
-                    <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FRoyceFernandoOfficial&amp;width&amp;height=250&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:350px;" allowTransparency="true"></iframe>
-                </div>
-                <div class="col-sm-4 col-xs-12">
-                    <h3>My Twitter Page</h3>
-                    <hr>
-                    <div style="margin-top:-15px;" ">
-                    <a class="twitter-timeline"  href="https://twitter.com/RoyceWFernando" data-widget-id="731085573360738304">Tweets by @RoyceWFernando</a>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                </div>
-                </div>
-                <div class="col-sm-4 col-xs-12">
-                    <h3>My Google+ Account</h3>
-                    <hr>
-                    <script src="https://apis.google.com/js/platform.js" async defer></script>
-                    <div class="g-person" data-href="https://plus.google.com/101330294031263361694" style="height:250px !important;"></div>
-                </div>
+            <div class="col-sm-3 col-xs-12" style="background-color:#f7f7f7;">
+                <section id="fb">
+                    <div class="row">
+                        <div class="col-xs-12" style="margin-top:40px;">
+                            <h3 style="text-align: center;">My Facebook Page</h3>
+                            <hr>
+                            <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FRoyceFernandoOfficial&amp;width&amp;height=250&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:350px;" allowTransparency="true"></iframe>
+                        </div>
+                        <div class="col-xs-12" style="margin-top:-120px !important;">
+                            <h3  style="text-align: center;">My Twitter Page</h3>
+                            <hr>
+                            <div style="margin-top:-15px;" ">
+                            <a class="twitter-timeline"  href="https://twitter.com/RoyceWFernando" data-widget-id="731085573360738304">Tweets by @RoyceWFernando</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        </div>
+                        <div class="col-xs-12">
+                            <h3  style="text-align: center;">My Google+ Account</h3>
+                            <hr>
+                            <script src="https://apis.google.com/js/platform.js" async defer></script>
+                            <div class="g-person" data-href="https://plus.google.com/101330294031263361694" style="height:250px !important;"></div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer id="footer" class="midnight-blue" style="background-color:#3c763d;">
         <div class="container">
