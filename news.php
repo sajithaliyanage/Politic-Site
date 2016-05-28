@@ -1,8 +1,18 @@
 <?php
+header( 'Content-Type: text/html; charset=utf-8' );
 include ('admin/php/config.php');
+include_once('language_translate.php');
 
-$sql = "SELECT * FROM news ORDER BY id DESC";
-$result = $conn->query($sql);
+
+
+
+
+$pdo = connect();
+$sql = "SELECT * FROM news WHERE language = :lan ORDER BY id DESC";
+$query = $pdo->prepare($sql);
+$query->execute(array('lan'=>$lan));
+$result = $query->fetchAll();//$conn->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +22,7 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Royce Fernando | Official Web Site</title>
+    <title><?php echo translate("Royce Fernando",$lan);?> | <?php echo translate("Official Web Site",$lan);?></title>
     
     <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,16 +50,16 @@ $result = $conn->query($sql);
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-xs-4">
-                    <a href="si/index.php">සිංහල</a>
+                    <a href="setlanguage.php?language=SI">සිංහල</a>
                     <span style="color: #4cae4c;">|</span>
-                    <a href="ta/index.php">தமிழ்</a>
+                    <a href="setlanguage.php?language=EN">தமிழ்</a>
                     <span style="color: #4cae4c;">|</span>
-                    <a href="index.php">English</a>
+                    <a href="setlanguage.php?language=EN">English</a>
                 </div>
                 <div class="col-sm-6 col-xs-8">
                     <div class="social">
                         <ul class="social-share">
-                            <li ><a href="contact-us.html"><i class="fa fa-phone"></i></a></li>
+                            <li ><a href="contact-us.php"><i class="fa fa-phone"></i></a></li>
                             <li ><a href="https://www.facebook.com/RoyceFernandoOfficial/"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="https://twitter.com/RoyceWFernando"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="https://www.youtube.com/channel/UCwiLluuQWuQTROY9ZEaGOyw"><i class="fa fa-youtube"></i></a></li>
@@ -69,23 +79,23 @@ $result = $conn->query($sql);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"><img src="images/ico/rf.png" class="img-responsive rf-image" style="width:300px; margin-top:7px;" alt="logo"></a>
+                <a class="navbar-brand" href="index.php"><img src="images/ico/<?php echo getImageTranslation("rf",$lan);?>.png" class="img-responsive rf-image" style="width:300px; margin-top:7px;" alt="logo"></a>
             </div>
 
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="biography.html">Biography</a></li>
-                    <li  class="active"><a href="news.php">News</a></li>
-                    <li><a href="mystory.html">My Story</a></li>
+                    <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
+                    <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                    <li class="active"><a href="news.php"><?php echo translate("News",$lan);?></a></li>
+                    <li><a href="mystory.php"><?php echo translate("My Story",$lan);?></a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <i class="fa fa-angle-down"></i></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo translate("Gallery",$lan);?><i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="privategallery.php">Private Gallery</a></li>
-                            <li><a href="publicgallery.php">Public Gallery</a></li>
+                            <li><a href="privategallery.php"><?php echo translate("Private Gallery",$lan);?></a></li>
+                            <li><a href="publicgallery.php"><?php echo translate("Public Gallery",$lan);?></a></li>
                         </ul>
                     </li>
-                    <li><a href="contact-us.html">Contact</a></li>
+                    <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
                 </ul>
             </div>
         </div><!--/.container-->
@@ -95,18 +105,14 @@ $result = $conn->query($sql);
 
 
 <section id="blog" class="container">
-        <div class="center">
-            <h2>News</h2>
-            <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-        </div>
-
         <div class="blog">
             <div class="row">
                  <div class="col-xs-10 col-xs-offset-1">
                      <?php
-                     if ($result->num_rows > 0) {
+                     if (count($result) > 0) {
                          // output data of each row
-                         while($row = $result->fetch_assoc()) {
+                         foreach($result as $row){
+                         //while($row = $result->fetch_assoc()) {
                              echo "<div class=\"blog-item\">
                         <div class=\"row\">
                             <div class=\"col-xs-12 col-sm-2 text-center\">
@@ -116,9 +122,9 @@ $result = $conn->query($sql);
                             </div>
 
                             <div class=\"col-xs-12 col-sm-6 blog-content\">
-                                <h2><a href='news-item.php?id=".$row['id']."'>".$row['heading']."</a></h2>
-                                <h3>".$row['small']."</h3>
-                                <a class=\"btn btn-primary readmore\" href='news-item.php?id=".$row['id']."'>Read More <i class=\"fa fa-angle-right\"></i></a>
+                                <h2><a href='news-item.php?id=".$row['id']."'>".utf8_decode($row['heading'])."</a></h2>
+                                <h3>".utf8_decode($row['small'])."</h3>
+                                <a class=\"btn btn-primary readmore\" href='news-item.php?id=".$row['id']."'>".translate("Read More",$lan)."<i class=\"fa fa-angle-right\"></i></a>
                             </div>
                             <div class=\"col-sm-4 col-xs-12\">
                                 <a href=\"#\"><img class=\"img-responsive img-blog\" src='admin/uploads/".$row['headimage']."' width=\"100%\" alt=\"\" /></a>
@@ -135,13 +141,13 @@ $result = $conn->query($sql);
 
                       <center>
                           <ul class="pagination pagination-lg">
-                              <li><a href="#"><i class="fa fa-long-arrow-left"></i>Previous Page</a></li>
+                              <li><a href="#"><i class="fa fa-long-arrow-left"></i><?php echo translate("Previous Page",$lan);?></a></li>
                               <li class="active"><a href="#">1</a></li>
                               <li><a href="#">2</a></li>
                               <li><a href="#">3</a></li>
                               <li><a href="#">4</a></li>
                               <li><a href="#">5</a></li>
-                              <li><a href="#">Next Page<i class="fa fa-long-arrow-right"></i></a></li>
+                              <li><a href="#"><?php echo translate("Next Page",$lan);?><i class="fa fa-long-arrow-right"></i></a></li>
                           </ul><!--/.pagination-->
                       </center>
 
@@ -155,13 +161,13 @@ $result = $conn->query($sql);
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; 2016 <a target="_blank" href="index.php" title="Royce Wijitha fernand | Official Web Site">Royce Wijitha Fernando</a>. All Rights Reserved.
+                &copy; 2016 <a target="_blank" href="index.php" title="Royce Wijitha fernand | Official Web Site"><?php echo translate("Royce Wijitha Fernando",$lan);?></a>. <?php echo translate("All Rights Reserved",$lan);?>.
             </div>
             <div class="col-sm-6">
                 <ul class="pull-right">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="biography.html">About Us</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
+                    <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                    <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
                 </ul>
             </div>
         </div>

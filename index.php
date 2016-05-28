@@ -1,24 +1,30 @@
 <?php
+header( 'Content-Type: text/html; charset=utf-8' );
 include ('admin/php/config.php');
+include_once('language_translate.php');
 
-$sql = "SELECT * FROM news ORDER BY id DESC";
-$result = $conn->query($sql);
+$pdo = connect();
 
-$sql2 = "SELECT * FROM news ORDER BY id DESC LIMIT 10 ";
-$result2 = $conn->query($sql2);
+$sql = "SELECT id, heading FROM news WHERE language = :lan ORDER BY id DESC";
+$query = $pdo->prepare($sql);
+$query->execute(array('lan'=>$lan));
+$result = $query->fetchAll();//$conn->query($sql);
 
-$sql3 = "SELECT * FROM news ORDER BY id DESC LIMIT 1 ";
-$result3 = $conn->query($sql3);
+$sql2 = "SELECT * FROM news WHERE language = :lan ORDER BY id DESC LIMIT 10 ";
+$query = $pdo->prepare($sql2);
+$query->execute(array('lan'=>$lan));
+$result2 = $query->fetchAll();//$conn->query($sql2);
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Royce Fernando | Official Web Site</title>
+    <title><?php echo translate("Royce Fernando",$lan);?> | <?php echo translate("Official Web Site",$lan);?></title>
     <link rel="shortcut icon" href="images/ico/fav.ico">
 	<!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,16 +46,16 @@ $result3 = $conn->query($sql3);
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-xs-4">
-                        <a href="si/index.php">සිංහල</a>
+                        <a href="setlanguage.php?language=SI">සිංහල</a>
                         <span style="color: #4cae4c;">|</span> 
-                        <a href="ta/index.php">தமிழ்</a>
+                        <a href="setlanguage.php?language=EN">தமிழ்</a>
                         <span style="color: #4cae4c;">|</span>
-                        <a href="index.php">English</a>
+                        <a href="setlanguage.php?language=EN">English</a>
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
                             <ul class="social-share">
-                                <li ><a href="contact-us.html"><i class="fa fa-phone"></i></a></li>
+                                <li ><a href="contact-us.php"><i class="fa fa-phone"></i></a></li>
                                 <li ><a href="https://www.facebook.com/RoyceFernandoOfficial/"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="https://twitter.com/RoyceWFernando"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="https://www.youtube.com/channel/UCwiLluuQWuQTROY9ZEaGOyw"><i class="fa fa-youtube"></i></a></li>
@@ -69,23 +75,23 @@ $result3 = $conn->query($sql3);
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php"><img src="images/ico/rf.png" class="img-responsive rf-image" style="width:300px; margin-top:7px;" alt="logo"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/ico/<?php echo getImageTranslation("rf",$lan);?>.png" class="img-responsive rf-image" style="width:300px; margin-top:7px;" alt="logo"></a>
                 </div>
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Home</a></li>
-                        <li><a href="biography.html">Biography</a></li>
-                        <li><a href="news.php">News</a></li>
-                        <li><a href="mystory.html">My Story</a></li>
+                        <li class="active"><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
+                        <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                        <li><a href="news.php"><?php echo translate("News",$lan);?></a></li>
+                        <li><a href="mystory.php"><?php echo translate("My Story",$lan);?></a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo translate("Gallery",$lan);?><i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="privategallery.php">Private Gallery</a></li>
-                                <li><a href="publicgallery.php">Public Gallery</a></li>
+                                <li><a href="privategallery.php"><?php echo translate("Private Gallery",$lan);?></a></li>
+                                <li><a href="publicgallery.php"><?php echo translate("Public Gallery",$lan);?></a></li>
                             </ul>
                         </li>
-                        <li><a href="contact-us.html">Contact</a></li>
+                        <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -120,16 +126,42 @@ $result3 = $conn->query($sql3);
         </a>
     </section><!--/#main-slider-->
 
-    <div class="container-fluid" style="background-color: #27AE60; height: 30px; color: #080808; padding-top: 5px;">
+    <section id="feature" style="background-color: #FFFFFF;">
+        <div class="container">
+            <div class="center wow fadeInDown">
+                <h2><b><?php echo translate("My Brief",$lan);?></h2>
+                <p class="lead"><?php echo getPara("para1",$lan);?></p>
+            </div>
+        </div>
+        <!--/.container-->
+    </section>
+
+    <section id="missionvisson">
+        <div class="container-fluid" style="background-color:#67b168; color:#FFFFFF; ">
+            <div class="row" style="padding:50px 0px;margin-left:0px !important; margin-right: 0px !important;">
+                <div class="col-sm-6 col-xs-12">
+                    <h2 style="text-align:center; color:#FFFFFF; "><b><?php echo translate("My Mission",$lan);?></b></h2>
+                    <p class="lead" style="text-align:center;"><?php echo getPara("para2",$lan);?></p>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <h2 style="text-align:center;color:#FFFFFF;"><b><?php echo translate("My Vision",$lan);?></b></h2>
+                    <p class="lead" style="text-align:center;"><?php echo getPara("para3",$lan);?></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-fluid" style="background-color: #255625; height: 30px; color: #080808; padding-top: 5px;">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12" style="color: #FFFFFF;">
                 <?php
-                if ($result->num_rows > 0) {
+                if (count($result)>0) {
                     echo '<marquee>';
                     // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo "***";
-                        echo '<a href="news-item.php?id='.$row['id'].'" style="color: #080808;">'.$row['heading'].'</a>';
+                    foreach($result as $row){
+                    //while($row = $result->fetch_assoc()) {
+                        echo " *** ";
+                        echo '<a href="news-item.php?id='.$row['id'].'" style="color: #FFFFFF;"><b>'.utf8_decode($row['heading']).'</b></a>';
                         echo "\t\t\t\t";
                     }
                     echo '</marquee>';
@@ -139,90 +171,73 @@ $result3 = $conn->query($sql3);
         </div>
     </div>
 
-    <section id="feature" style="background-color: #FFFFFF;">
-        <div class="container">
-           <div class="center wow fadeInDown">
-                <h2><b>My Brief</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </div>
-        </div>
-       <!--/.container-->
-    </section>
-
-    <section id="missionvisson">
-        <div class="container-fluid" style="background-color:#67b168; color:#FFFFFF; ">
-            <div class="row" style="padding:50px 0px;margin-left:0px !important; margin-right: 0px !important;">
-                <div class="col-sm-6 col-xs-12">
-                    <h2 style="text-align:center; color:#FFFFFF; "><b>My Mission</b></h2>
-                    <p class="lead" style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam</p>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                    <h2 style="text-align:center;color:#FFFFFF;"><b>My Vision</b></h2>
-                    <p class="lead" style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utet dolore magna aliqua. Ut enim ad minim veniam</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-9 col-xs-12">
                 <section id="recent-works" style="margin-top:40px; padding-left:20px;">
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <?php
-                            if ($result->num_rows > 0) {
-                                echo '<marquee>';
-                                // output data of each row
-                                while($row = $result->fetch_assoc()) {
-                                    echo "***";
-                                    echo '<a href="news-item.php?id='.$row['id'].'" style="color: #080808;">'.$row['heading'].'</a>';
-                                    echo "\t\t\t\t";
-                                }
-                                echo '</marquee>';
-                            }
-                            ?>
-                        </div>
-                        <div class="col-xs-4">
-
-                        </div>
-                    </div>
                         <div class="row">
-                            <div class="col-sm-7 col-xs-12">
-                                <h3>News</h3>
+                            <div class="col-sm-3 col-xs-4" style="padding-right:20px;">
+                                <h3><?php echo translate("Youtube Channel",$lan);?></h3>
+                                <hr>
+                                <div>
+                                    <iframe src="http://www.youtube.com/embed/playlist?list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:auto;"></iframe>
+                                </div>
+                                <div>
+                                    <iframe src="https://www.youtube.com/embed/watch?v=X2GJ5B717OU&list=UUwiLluuQWuQTROY9ZEaGOyw&index=3"  style="width:100%; height:auto;"></iframe>
+                                </div>
+                                <div>
+                                    <iframe src="http://www.youtube.com/embed/watch?v=BFbFFHiOAmU&index=4&list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:auto;"></iframe>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 col-xs-8">
+                                <h3><?php echo translate("Latest News",$lan);?></h3>
                                 <hr>
                                 <?php
-                                if ($result2->num_rows > 0) {
+                                $row = $result2[0];
+                                ?>
+                                <a href='news-item.php?id=<?php echo $row['id'];?>'>
+                                <div class="row">
+                                        <div class="col-xs-12">
+                                            <a href='news-item.php?id=<?php echo $row['id'];?>'><h3 style="font-size: 20px; color: #3c763d"><?php echo utf8_decode($row['heading']);?></h3></a>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12" style="text-align: left !important;">
+                                            <img src='admin/uploads/<?php echo $row['headimage'];?>' style ='width: 100%; height:auto;' />
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12">
+                                            <p class="lead" style='font-size:14px;'><?php echo substr(utf8_decode($row['content']),0,1000);?></p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <h3><?php echo translate("Other News",$lan);?></h3>
+                                <hr>
+                                <?php
+                                if (count($result2) > 0) {
+                                    $start = 0;
                                     // output data of each row
-                                    while($row = $result2->fetch_assoc()) {
-                                        echo "<div class=\"row\">
-                        <div class=\"col-xs-2\" style=\"text-align: center !important;\"><i class=\"fa fa-eye fa-4x\" aria-hidden=\"true\" ></i></div>
-                        <div class=\"col-xs-10\">
-                            <a href='news-item.php?id=".$row['id']."'>".$row['heading']."</a>
-                            <p class=\"lead\" style='font-size:12px;'>".$row['small']."</p>
-                            <hr style=\"padding-left:30px;\">
-                        </div>
-                    </div>";
+                                    foreach($result2 as $row){
+                                    //while($row = $result2->fetch_assoc()) {
+                                        if($start!=0){
+                                            echo "<a href='news-item.php?id=".$row['id']."'><div class=\"row\">
+                                                <div class=\"col-xs-3\" style=\"text-align: center !important;\"><img src='admin/uploads/".$row['headimage']."' style ='width: auto; height:80px;' /></div>
+                                                <div class=\"col-xs-9\">
+                                                    <a href='news-item.php?id=".$row['id']."'>".utf8_decode($row['heading'])."</a>
+                                                    <p class=\"lead\" style='font-size:12px;'>".utf8_decode($row['small'])."</p>
+                                                </div>
+                                                <div class=\"col-xs-12\">
+                                                    <hr style=\"padding-left:0px;\">
+                                                </div>
+                                            </div></a>";
+                                        }
+                                        $start += 1;
                                     }
                                 }
 
                                 ?>
 
-                                <a href="news.php"><h4>Read More ....</h4></a>
+                                <a href="news.php"><h4><?php echo translate("Read More",$lan);?> ....</h4></a>
                             </div>
-                            <div class="col-sm-5 col-xs-12" style="padding-right:20px;">
-                                <h3>Youtube Channel</h3>
-                                <hr>
-                                <div>
-                                    <iframe src="http://www.youtube.com/embed/playlist?list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:300px;"></iframe>
-                                </div>
-                                <div>
-                                    <iframe src="https://www.youtube.com/embed/watch?v=X2GJ5B717OU&list=UUwiLluuQWuQTROY9ZEaGOyw&index=3"  style="width:100%; height:300px;"></iframe>
-                                </div>
-                                <div>
-                                    <iframe src="http://www.youtube.com/embed/watch?v=BFbFFHiOAmU&index=4&list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:300px;;"></iframe>
-                                </div>
-                            </div>
+
                         </div>
                     </section><!--/#recent-works-->
             </div>
@@ -230,19 +245,19 @@ $result3 = $conn->query($sql3);
                 <section id="fb">
                     <div class="row">
                         <div class="col-xs-12" style="margin-top:40px;">
-                            <h3 style="text-align: center;">My Facebook Page</h3>
+                            <h3 style="text-align: center;"><?php echo translate("Facebook Page",$lan);?></h3>
                             <hr>
                             <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FRoyceFernandoOfficial&amp;width&amp;height=250&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:350px;" allowTransparency="true"></iframe>
                         </div>
                         <div class="col-xs-12" style="margin-top:-120px !important;">
-                            <h3  style="text-align: center;">My Twitter Page</h3>
+                            <h3  style="text-align: center;"><?php echo translate("Twitter Page",$lan);?></h3>
                             <hr>
                             <div style="margin-top:-15px;" ">
-                            <a class="twitter-timeline"  href="https://twitter.com/RoyceWFernando" data-widget-id="731085573360738304">Tweets by @RoyceWFernando</a>
+                            <a class="twitter-timeline"  href="https://twitter.com/RoyceWFernando" data-widget-id="731085573360738304"><?php echo translate("Tweets by",$lan);?> @RoyceWFernando</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </div>
                         <div class="col-xs-12">
-                            <h3  style="text-align: center;">My Google+ Account</h3>
+                            <h3  style="text-align: center;"><?php echo translate("Google+ Account",$lan);?></h3>
                             <hr>
                             <script src="https://apis.google.com/js/platform.js" async defer></script>
                             <div class="g-person" data-href="https://plus.google.com/101330294031263361694" style="height:250px !important;"></div>
@@ -253,17 +268,18 @@ $result3 = $conn->query($sql3);
         </div>
     </div>
 
+
     <footer id="footer" class="midnight-blue" style="background-color:#3c763d;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2016 <a target="_blank" href="index.php" title="Royce Wijitha fernand | Official Web Site">Royce Wijitha Fernando</a>. All Rights Reserved.
+                    &copy; 2016 <a target="_blank" href="index.php" title="Royce Wijitha fernand | Official Web Site"><?php echo translate("Royce Wijitha Fernando",$lan);?></a>. <?php echo translate("All Rights Reserved",$lan);?>.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="biography.html">About Us</a></li>
-                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
+                        <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                        <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
                     </ul>
                 </div>
             </div>

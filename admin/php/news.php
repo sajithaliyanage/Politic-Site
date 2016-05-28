@@ -1,17 +1,23 @@
 <?php
 include('config.php');
 
-$name = $_POST['heading'];
+$name = utf8_encode($_POST['heading']);
+$lan = $_POST['language'];
 $date= $_POST['date'];
-$des = $_POST['content'];
-$small = $_POST['small'];
+$des = utf8_encode($_POST['content']);
+$small = utf8_encode($_POST['small']);
 
 
-$sql = "INSERT INTO news (heading,date,small,content,headimage)
-VALUES ('$name','$date','$small','$des','null')";
-$conn->query($sql);
 
-$newsid =  mysqli_insert_id($conn);
+$pdo = connect();
+$sql = "INSERT INTO news (language, heading,date,small,content,headimage)
+VALUES (:lan,:name,:date,:small,:des,:headimage)";
+$inputs = array('lan'=>$lan,'name'=>$name,'date'=>$date,'small'=>$small,'des'=>$des,'headimage'=>'null');
+$query = $pdo->prepare($sql);
+$query->execute($inputs);
+//$conn->query($sql);
+
+$newsid =  $pdo->lastInsertId();//mysqli_insert_id($conn);
 
 //upload image
 mkdir('../uploads/news/' . $newsid . '/', 0777, true);

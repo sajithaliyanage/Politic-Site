@@ -1,3 +1,9 @@
+<?php
+    include_once("php/checklogin.php");
+    if($islogged && $user == "admin"){
+        header( 'Location:profile.php' ) ;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,3 +1,7 @@
+<?php
+header( 'Content-Type: text/html; charset=utf-8' );
+include_once('language_translate.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Royce Fernando | Official Web Site</title>
+    <title><?php echo translate("Royce Fernando",$lan);?> | <?php echo translate("Official Web Site",$lan);?></title>
     
     <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,16 +37,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-xs-4">
-                    <a href="si/index.php">සිංහල</a>
+                    <a href="setlanguage.php?language=SI">සිංහල</a>
                     <span style="color: #4cae4c;">|</span>
-                    <a href="ta/index.php">தமிழ்</a>
+                    <a href="setlanguage.php?language=EN">தமிழ்</a>
                     <span style="color: #4cae4c;">|</span>
-                    <a href="index.php">English</a>
+                    <a href="setlanguage.php?language=EN">English</a>
                 </div>
                 <div class="col-sm-6 col-xs-8">
                     <div class="social">
                         <ul class="social-share">
-                            <li ><a href="contact-us.html"><i class="fa fa-phone"></i></a></li>
+                            <li ><a href="contact-us.php"><i class="fa fa-phone"></i></a></li>
                             <li ><a href="https://www.facebook.com/RoyceFernandoOfficial/"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="https://twitter.com/RoyceWFernando"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="https://www.youtube.com/channel/UCwiLluuQWuQTROY9ZEaGOyw"><i class="fa fa-youtube"></i></a></li>
@@ -62,23 +66,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"><img src="images/ico/rf.png" class="img-responsive rf-image" style="width:300px; margin-top:7px;" alt="logo"></a>
+                <a class="navbar-brand" href="index.php"><img src="images/ico/<?php echo getImageTranslation("rf",$lan);?>.png" class="img-responsive rf-image" style="width:300px; margin-top:7px;" alt="logo"></a>
             </div>
 
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li ><a href="index.php">Home</a></li>
-                    <li><a href="biography.html">Biography</a></li>
-                    <li><a href="news.php">News</a></li>
-                    <li><a href="mystory.html">My Story</a></li>
+                    <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
+                    <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                    <li><a href="news.php"><?php echo translate("News",$lan);?></a></li>
+                    <li><a href="mystory.php"><?php echo translate("My Story",$lan);?></a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <i class="fa fa-angle-down"></i></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo translate("Gallery",$lan);?><i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="privategallery.php">Private Gallery</a></li>
-                            <li><a href="publicgallery.php">Public Gallery</a></li>
+                            <li><a href="privategallery.php"><?php echo translate("Private Gallery",$lan);?></a></li>
+                            <li><a href="publicgallery.php"><?php echo translate("Public Gallery",$lan);?></a></li>
                         </ul>
                     </li>
-                    <li class="active"><a href="contact-us.html">Contact</a></li>
+                    <li class="active"><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
                 </ul>
             </div>
         </div><!--/.container-->
@@ -90,8 +94,8 @@
 
 <section id="contact-info">
         <div class="center">                
-            <h2>How to Meet Me?</h2>
-            <p class="lead">I'm always looking forward to service for you</p>
+            <h2><?php echo translate("How to Meet Me ?",$lan);?></h2>
+            <p class="lead"><?php echo getPara("para5",$lan);?></p>
         </div>
         <div class="gmap-area" style="margin-top:-20px;">
             <div class="container">
@@ -151,13 +155,13 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; 2016 <a target="_blank" href="index.php" title="Royce Wijitha fernand | Official Web Site">Royce Wijitha Fernando</a>. All Rights Reserved.
+                &copy; 2016 <a target="_blank" href="index.php" title="Royce Wijitha fernand | Official Web Site"><?php echo translate("Royce Wijitha Fernando",$lan);?></a>. <?php echo translate("All Rights Reserved",$lan);?>.
             </div>
             <div class="col-sm-6">
                 <ul class="pull-right">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="biography.html">About Us</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
+                    <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                    <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
                 </ul>
             </div>
         </div>

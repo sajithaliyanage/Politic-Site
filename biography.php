@@ -1,12 +1,7 @@
 <?php
 header( 'Content-Type: text/html; charset=utf-8' );
 include_once('language_translate.php');
-include ('admin/php/config.php');
-
-$sql = "SELECT * FROM public_image";
-$result = $conn->query($sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +10,15 @@ $result = $conn->query($sql);
     <meta name="description" content="">
     <meta name="author" content="">
     <title><?php echo translate("Royce Fernando",$lan);?> | <?php echo translate("Official Web Site",$lan);?></title>
+	
+	<!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
+	
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -31,32 +29,33 @@ $result = $conn->query($sql);
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
+
 <body>
 
 <header id="header">
-    <div class="top-bar" style="background-color:#255625;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-xs-4">
+	<div class="top-bar" style="background-color:#255625;">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-xs-4">
                     <a href="setlanguage.php?language=SI">සිංහල</a>
                     <span style="color: #4cae4c;">|</span>
                     <a href="setlanguage.php?language=EN">தமிழ்</a>
                     <span style="color: #4cae4c;">|</span>
                     <a href="setlanguage.php?language=EN">English</a>
-                </div>
-                <div class="col-sm-6 col-xs-8">
-                    <div class="social">
-                        <ul class="social-share">
-                            <li ><a href="contact-us.php"><i class="fa fa-phone"></i></a></li>
-                            <li ><a href="https://www.facebook.com/RoyceFernandoOfficial/"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="https://twitter.com/RoyceWFernando"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://www.youtube.com/channel/UCwiLluuQWuQTROY9ZEaGOyw"><i class="fa fa-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div><!--/.container-->
-    </div><!--/.top-bar-->
+				</div>
+				<div class="col-sm-6 col-xs-8">
+					<div class="social">
+						<ul class="social-share">
+							<li ><a href="contact-us.php"><i class="fa fa-phone"></i></a></li>
+							<li ><a href="https://www.facebook.com/RoyceFernandoOfficial/"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/RoyceWFernando"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://www.youtube.com/channel/UCwiLluuQWuQTROY9ZEaGOyw"><i class="fa fa-youtube"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><!--/.container-->
+	</div><!--/.top-bar-->
 
     <nav class="navbar navbar-inverse" role="banner" style="background-color:#3c763d;">
         <div class="container">
@@ -73,10 +72,10 @@ $result = $conn->query($sql);
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
-                    <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                    <li class="active"><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
                     <li><a href="news.php"><?php echo translate("News",$lan);?></a></li>
                     <li><a href="mystory.php"><?php echo translate("My Story",$lan);?></a></li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo translate("Gallery",$lan);?><i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="privategallery.php"><?php echo translate("Private Gallery",$lan);?></a></li>
@@ -91,36 +90,15 @@ $result = $conn->query($sql);
 
 </header><!--/header-->
 
-<section id="portfolio">
+<section id="about-us">
         <div class="container">
-            <div class="center">
-               <h2><?php echo translate("Public Gallery ",$lan);?></h2>
-               <p class="lead"><?php echo getPara("para5",$lan);?></p>
-            </div>
-
-            <div class="row">
-                <div class="portfolio-items">
-                    <?php
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                            echo "<div class=\"portfolio-item apps col-xs-12 col-sm-4 col-md-3\">
-                            <div class=\"recent-work-wrap\">
-                                <img class=img-responsive\" src='admin/uploads/".$row['image']."' style=\"width:300px; height:230px;\" alt=\"\">
-                                <div class=\"overlay\">
-                                    <div class=\"recent-work-inner\" style=' text-align: center;padding-top:60px;'>
-                                        <a class=\"preview\" href='admin/uploads/".$row['image']."' rel=\"prettyPhoto\" style=\"font-size:30px;vertical-align: middle; \"><i class=\"fa fa-eye\"></i> ".translate("View",$lan)."</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--/.portfolio-item-->";
-                        }
-                    }
-
-                    ?>
-            </div>
-        </div>
-    </section><!--/#portfolio-item-->
+			<div class="center wow fadeInDown">
+				<h2><?php echo translate("My Biography",$lan);?></h2>
+				<p class="lead"><?php echo getPara("para4",$lan);?></p>
+			</div>
+			<!-- about us slider -->
+		</div><!--/.container-->
+    </section><!--/about-us-->
 
 
 <footer id="footer" class="midnight-blue" style="background-color:#3c763d;">
@@ -139,8 +117,12 @@ $result = $conn->query($sql);
         </div>
     </div>
 </footer><!--/#footer-->
+    
 
     <script src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $('.carousel').carousel()
+    </script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>

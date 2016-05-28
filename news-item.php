@@ -1,12 +1,19 @@
 <?php
+header( 'Content-Type: text/html; charset=utf-8' );
 include ('admin/php/config.php');
+include_once('language_translate.php');
+
 $post_id = $_GET['id'];
+$pdo = connect();
+$sql = "SELECT * FROM news where id=:pid ";
+$query = $pdo->prepare($sql);
+$query->execute(array('pid'=>$post_id));
+$result = $query->fetchAll();//$conn->query($sql);
 
-$sql = "SELECT * FROM news where id='$post_id' ";
-$result = $conn->query($sql);
-
-$sql2 = "SELECT * FROM news_image where news_id='$post_id' ";
-$result2 = $conn->query($sql2);
+$sql2 = "SELECT * FROM news_image where news_id=:pid ";
+$query = $pdo->prepare($sql2);
+$query->execute(array('pid'=>$post_id));
+$result2 = $query->fetchAll();//$conn->query($sql2);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +23,7 @@ $result2 = $conn->query($sql2);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Royce Fernando | Official Web Site</title>
+    <title><?php echo translate("Royce Fernando",$lan);?> | <?php echo translate("Official Web Site",$lan);?></title>
     
     <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -44,16 +51,16 @@ $result2 = $conn->query($sql2);
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-xs-4">
-                    <a href="si/index.php">සිංහල</a>
+                    <a href="setlanguage.php?language=SI">සිංහල</a>
                     <span style="color: #4cae4c;">|</span>
-                    <a href="ta/index.php">தமிழ்</a>
+                    <a href="setlanguage.php?language=EN">தமிழ்</a>
                     <span style="color: #4cae4c;">|</span>
-                    <a href="index.php">English</a>
+                    <a href="setlanguage.php?language=EN">English</a>
                 </div>
                 <div class="col-sm-6 col-xs-8">
                     <div class="social">
                         <ul class="social-share">
-                            <li ><a href="contact-us.html"><i class="fa fa-phone"></i></a></li>
+                            <li ><a href="contact-us.php"><i class="fa fa-phone"></i></a></li>
                             <li ><a href="https://www.facebook.com/RoyceFernandoOfficial/"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="https://twitter.com/RoyceWFernando"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="https://www.youtube.com/channel/UCwiLluuQWuQTROY9ZEaGOyw"><i class="fa fa-youtube"></i></a></li>
@@ -73,23 +80,23 @@ $result2 = $conn->query($sql2);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"><img src="images/ico/rf.png" class="img-responsive rf-image" style="width:300px; margin-top:7px;" alt="logo"></a>
+                <a class="navbar-brand" href="index.php"><img src="images/ico/<?php echo getImageTranslation("rf",$lan);?>.png" class="img-responsive rf-image" style="width:300px; margin-top:7px;" alt="logo"></a>
             </div>
 
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="biography.html">Biography</a></li>
-                    <li  class="active"><a href="news.php">News</a></li>
-                    <li><a href="mystory.html">My Story</a></li>
+                    <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
+                    <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                    <li class="active"><a href="news.php"><?php echo translate("News",$lan);?></a></li>
+                    <li><a href="mystory.php"><?php echo translate("My Story",$lan);?></a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <i class="fa fa-angle-down"></i></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo translate("Gallery",$lan);?><i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="privategallery.php">Private Gallery</a></li>
-                            <li><a href="publicgallery.php">Public Gallery</a></li>
+                            <li><a href="privategallery.php"><?php echo translate("Private Gallery",$lan);?></a></li>
+                            <li><a href="publicgallery.php"><?php echo translate("Public Gallery",$lan);?></a></li>
                         </ul>
                     </li>
-                    <li><a href="contact-us.html">Contact</a></li>
+                    <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
                 </ul>
             </div>
         </div><!--/.container-->
@@ -100,32 +107,31 @@ $result2 = $conn->query($sql2);
 
 
 <section id="blog" class="container">
-    <div><a href="news.php"><h2  style="color:#67b168;">< Back</h2></a></div>
-        <div class="center">
-            <h2>Selected News Item</h2>
-            <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-        </div>
+    <div><a href="news.php"><h2  style="color:#67b168;">< <?php echo translate("Back",$lan);?></h2></a></div>
+    <?php
+    if (count($result) > 0) {
+        // output data of each row
+        foreach($result as $row){
+        echo '<div class="center">
+                    <p class="lead"><h2>'.utf8_decode($row['heading']).'</h2></p>
+              </div>
+              <div class="blog">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">';
 
-        <div class="blog">
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1">
-                <?php
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
                        echo "<div class=\"blog-item\">
                         <center>
                             <img class=\"img-responsive img-blog\" src='admin/uploads/".$row['headimage']."' width=\"30%\" alt=\"\" />
                         </center>
                             <div class=\"row\">
-                                <div class=\"col-xs-12 col-sm-2 text-center\">
+                                <div class=\"col-xs-12 col-sm-12 blog-content\">
+                                    <p>".utf8_decode($row['content'])."</p>
+                                </div>
+                                <div class=\"col-xs-8 col-sm-10 text-center\"></div>
+                                <div class=\"col-xs-4 col-sm-2 text-center\">
                                     <div class=\"entry-meta\">
                                         <span id=\"publish_date\">".$row['date']."</span>
                                     </div>
-                                </div>
-                                <div class=\"col-xs-12 col-sm-10 blog-content\">
-                                    <h2>".$row['heading']."</h2>
-                                    <p>".$row['content']."</p>
                                 </div>
                             </div>
                         </div><!--/.blog-item-->
@@ -143,18 +149,18 @@ $result2 = $conn->query($sql2);
 <section id="portfolio" style="margin-top:-70px;">
     <div class="container">
         <div class="row">
-            <h3>See more images about this Post</h3>
+            <h3><?php echo translate("See more images about this Post",$lan);?></h3>
             <div class="portfolio-items">
                 <?php
-                if ($result2->num_rows > 0) {
+                if (count($result2) > 0) {
                     // output data of each row
-                    while($row = $result2->fetch_assoc()) {
+                    foreach($result2 as $row){
                         echo "<div class=\"portfolio-item apps col-xs-12 col-sm-4 col-md-3\">
                             <div class=\"recent-work-wrap\">
                                 <img class=img-responsive\" src='admin/uploads/".$row['image']."' style=\"width:300px; height:230px;\" alt=\"\">
                                 <div class=\"overlay\">
                                     <div class=\"recent-work-inner\" style=' text-align: center;padding-top:60px;'>
-                                        <a class=\"preview\" href='admin/uploads/".$row['image']."' rel=\"prettyPhoto\" style=\"font-size:30px;vertical-align: middle; \"><i class=\"fa fa-eye\"></i> View</a>
+                                        <a class=\"preview\" href='admin/uploads/".$row['image']."' rel=\"prettyPhoto\" style=\"font-size:30px;vertical-align: middle; \"><i class=\"fa fa-eye\"></i>".translate("View",$lan)."</a>
                                     </div>
                                 </div>
                             </div>
@@ -173,13 +179,13 @@ $result2 = $conn->query($sql2);
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; 2016 <a target="_blank" href="index.php" title="Royce Wijitha fernand | Official Web Site">Royce Wijitha Fernando</a>. All Rights Reserved.
+                &copy; 2016 <a target="_blank" href="index.php" title="Royce Wijitha fernand | Official Web Site"><?php echo translate("Royce Wijitha Fernando",$lan);?></a>. <?php echo translate("All Rights Reserved",$lan);?>.
             </div>
             <div class="col-sm-6">
                 <ul class="pull-right">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="biography.html">About Us</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
+                    <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                    <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
                 </ul>
             </div>
         </div>

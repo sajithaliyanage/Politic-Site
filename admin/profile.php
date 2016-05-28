@@ -1,3 +1,9 @@
+<?php
+include_once("php/checklogin.php");
+    if(!$islogged || $user != "admin"){
+        header( 'Location:index.php' ) ;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,18 +98,23 @@
                             <form action="php/news.php" method="post" enctype="multipart/form-data">
                                 <div class="col-sm-12">
                                     <div class="row">
-                                        <div class="col-sm-6 form-group">
+                                        <div class="col-sm-8 form-group">
                                             <label>Heading</label>
                                             <input type="text" placeholder="News Title" name="heading" class="form-control">
                                         </div>
-                                        <div class="col-sm-6 form-group">
-
+                                        <div class="col-sm-4 form-group">
+                                            <label for="select-lan">Language</label>
+                                            <select id="select-lan" class="form-control" name="language">
+                                                <option value="SI">Sinhala</option>
+                                                <option value="EN">English</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Date</label>
-                                            <input type="text" placeholder="News Title" name="date" class="form-control">
+                                            <input type="date" name="date" class="form-control">
+                                            <!--<input type="text" placeholder="Date" name="date" class="form-control">-->
                                         </div>
                                         <div class="col-sm-6 form-group">
 
