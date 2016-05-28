@@ -121,7 +121,7 @@ $result2 = $query->fetchAll();//$conn->query($sql2);
 
                        echo "<div class=\"blog-item\">
                         <center>
-                            <img class=\"img-responsive img-blog\" src='admin/uploads/".$row['headimage']."' width=\"30%\" alt=\"\" />
+                            <img class=\"img-responsive img-blog\" src='admin/uploads/".$row['headimage']."' width=\"70%\" alt=\"\" />
                         </center>
                             <div class=\"row\">
                                 <div class=\"col-xs-12 col-sm-12 blog-content\">
