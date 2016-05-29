@@ -1,0 +1,10 @@
+FTP 
+	host - teamwhileloop.com
+	user - a7930598
+	pass - 12345678
+
+Mysql (http://www.phpmyadmin.co/)
+	host = sql8.freesqldatabase.com
+	db = sql8121430
+	user = sql8121430
+	pass = xACYY4qHhJ

@@ -31,6 +31,7 @@ $textarray = array(
     "Other News" => "තවත් පුවත්",
     "Latest News" => "නවතම පුවත",
     "Read More"=>"වැඩි විස්තර",
+    "Today's Cartoon"=>"දවසේ කාටූනය",
     "Youtube Channel"=>"වීඩියෝ",
     "Facebook Page"=>"ෆේස්බුක් සමාජය",
     "Twitter Page"=>"ට්විටර් පණිවිඩ",

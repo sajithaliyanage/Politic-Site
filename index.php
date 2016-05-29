@@ -178,6 +178,10 @@ $result2 = $query->fetchAll();//$conn->query($sql2);
                 <section id="recent-works" style="margin-top:40px; padding-left:20px;">
                         <div class="row">
                             <div class="col-sm-3 col-xs-4" style="padding-right:20px;">
+                                <h3><?php echo translate("Today's Cartoon",$lan);?></h3>
+                                <hr>
+                                <img src='admin/uploads/cartoon/cartoon.png' style ='width: 100%; height:auto;' />
+
                                 <h3><?php echo translate("Youtube Channel",$lan);?></h3>
                                 <hr>
                                 <div>
