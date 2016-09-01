@@ -1,0 +1,70 @@
+.list-box, .wide-box {
+    clear: both;
+}
+.cat-box {
+    margin-bottom: 35px;
+}
+.cat-box a{
+        color: #111;
+}
+.cat-box-title {
+    padding: 3px 0;
+    overflow: hidden;
+}
+
+.stripe-line {
+    background: url(http://www.meepura.com/wp-content/themes/sahifa/images/stripe.png);
+    height: 12px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+.list-box .cat-box-content {
+    padding: 20px;
+}
+.cat-box-content, .widget-container, .post-listing {
+    border-bottom-color: #3c763d;
+}
+.cat-box-content, .widget-container, .post-listing {
+    background: #f1f1f1;
+    border-radius: 1px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    box-shadow: 0px 1px 3px 0 #b5b5b5;
+    -moz-box-shadow: 0px 1px 3px 0 #b5b5b5;
+    -webkit-box-shadow: 0px 1px 3px 0 #b5b5b5;
+    border: 1px solid #DDD;
+    border-bottom: 4px solid #3c763d;;
+}
+
+.list-box li.first-news {
+    background: #f1f1f1;
+    padding: 0;
+    width: 310px;
+    float: left;
+    margin-right: 20px;
+}
+
+.list-box li .post-thumbnail {
+    float: left;
+}
+.cat-box li .post-thumbnail {
+    margin: 0 15px 0 0;
+}
+p.post-meta {
+    color: #aaa;
+    margin: 7px 0;
+    font-size: 85%;
+}
+.entry {
+    line-height: 1.5;
+}
+.clear {
+    clear: both;
+}
+*{
+	padding:0;
+	margin:0;
+	outline:none;
+	list-style:none;
+	border: 0 none;
+}

@@ -30,7 +30,8 @@ include_once('language_translate.php');
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
-<body>
+<body class="homepage" style="overflow-x: hidden; background-color: #545454">
+<div class="container" style="background-color: #ffffff;padding-left: 0px;padding-right: 0px;">
 
 <header id="header">
     <div class="top-bar" style="background-color:#255625;">
@@ -39,9 +40,9 @@ include_once('language_translate.php');
                 <div class="col-sm-6 col-xs-4">
                     <a href="setlanguage.php?language=SI">සිංහල</a>
                     <span style="color: #4cae4c;">|</span>
-                    <a href="setlanguage.php?language=EN">தமிழ்</a>
+                    <!--<a href="setlanguage.php?language=EN">தமிழ்</a>
                     <span style="color: #4cae4c;">|</span>
-                    <a href="setlanguage.php?language=EN">English</a>
+                    <a href="setlanguage.php?language=EN">English</a>-->
                 </div>
                 <div class="col-sm-6 col-xs-8">
                     <div class="social">
@@ -57,7 +58,7 @@ include_once('language_translate.php');
         </div><!--/.container-->
     </div><!--/.top-bar-->
 
-    <nav class="navbar navbar-inverse" role="banner" style="background-color:#3c763d;">
+    <nav id="nav_bar_top" class="navbar navbar-inverse" role="banner" style="background-color:#3c763d;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -94,7 +95,7 @@ include_once('language_translate.php');
 <section id="feature" class="transparent-bg">
         <div class="container">
            <div class="center wow fadeInDown">
-                <h2><?php echo translate("My Story",$lan);?></h2>
+                <h2><?php echo translate("Private Life",$lan);?></h2>
                 <p class="lead"><?php echo getPara("para5",$lan);?></p>
             </div>
 
@@ -120,7 +121,7 @@ include_once('language_translate.php');
                                                 <img class="img-responsive" src="images/accordion1.png">
                                             </div>
                                             <div class="media-body">
-                                                <p><?php echo getPara("para5",$lan);?></p>
+                                                <p><?php echo getPara("para8",$lan);?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +139,7 @@ include_once('language_translate.php');
                                 </div>
                                 <div id="collapseTwo1" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <?php echo getPara("para5",$lan);?>
+                                        <?php echo getPara("para6",$lan);?>
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +155,7 @@ include_once('language_translate.php');
                                 </div>
                                 <div id="collapseThree1" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <?php echo getPara("para5",$lan);?>
+                                        <?php echo getPara("para7",$lan);?>
                                     </div>
                                 </div>
                             </div>
@@ -163,14 +164,14 @@ include_once('language_translate.php');
                                 <div class="panel-heading">
                                     <h3 class="panel-title">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour1">
-                                            <?php echo translate("My Target",$lan);?>
+                                            <?php echo translate("Base to the politics",$lan);?>
                                             <i class="fa fa-angle-right pull-right"></i>
                                         </a>
                                     </h3>
                                 </div>
                                 <div id="collapseFour1" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <?php echo getPara("para5",$lan);?>
+                                        <?php echo getPara("para9",$lan);?>
                                     </div>
                                 </div>
                             </div>
@@ -200,8 +201,9 @@ include_once('language_translate.php');
         </div>
     </div>
 </footer><!--/#footer-->
-
+</div>
     <script src="js/jquery.js"></script>
+    <script src="js/nav_fixed.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>

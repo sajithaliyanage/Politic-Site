@@ -7,7 +7,13 @@
  */
 
 $language = $_GET['language'];
-if($language == "SI" || $language == "EN"){
+
+
+
+
+
+//if($language == "SI" || $language == "EN"){
+if($language == "SI"){
     session_start();
     $_SESSION['language'] = $language;
 }

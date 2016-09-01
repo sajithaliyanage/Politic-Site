@@ -6,7 +6,7 @@
 **************************/
 
 body {
-  background: #fff;
+  background: #efefef;
   font-family: 'Open Sans', sans-serif;
   color:#4e4e4e;
   line-height: 22px;
@@ -58,6 +58,7 @@ a:hover, a:focus {
 hr {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
+    border-color: #d4d0d0;
 }
 
 
@@ -2525,8 +2526,11 @@ shortcodes page css
   margin-left: 15px;
 }
 
-
-
+.navbar-fixed {
+     top: 0;
+     z-index: 100;
+     position: fixed;
+}
 
 
 

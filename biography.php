@@ -30,96 +30,97 @@ include_once('language_translate.php');
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
-<body>
+<body class="homepage" style="overflow-x: hidden; background-color: #545454">
+<div class="container" style="background-color: #ffffff;padding-left: 0px;padding-right: 0px;">
+    <header id="header">
+        <div class="top-bar" style="background-color:#255625;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-4">
+                        <a href="setlanguage.php?language=SI">සිංහල</a>
+                        <span style="color: #4cae4c;">|</span>
+                        <!--<a href="setlanguage.php?language=EN">தமிழ்</a>
+                        <span style="color: #4cae4c;">|</span>
+                        <a href="setlanguage.php?language=EN">English</a>-->
+                    </div>
+                    <div class="col-sm-6 col-xs-8">
+                        <div class="social">
+                            <ul class="social-share">
+                                <li ><a href="contact-us.php"><i class="fa fa-phone"></i></a></li>
+                                <li ><a href="https://www.facebook.com/RoyceFernandoOfficial/"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/RoyceWFernando"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCwiLluuQWuQTROY9ZEaGOyw"><i class="fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.container-->
+        </div><!--/.top-bar-->
 
-<header id="header">
-	<div class="top-bar" style="background-color:#255625;">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 col-xs-4">
-                    <a href="setlanguage.php?language=SI">සිංහල</a>
-                    <span style="color: #4cae4c;">|</span>
-                    <a href="setlanguage.php?language=EN">தமிழ்</a>
-                    <span style="color: #4cae4c;">|</span>
-                    <a href="setlanguage.php?language=EN">English</a>
-				</div>
-				<div class="col-sm-6 col-xs-8">
-					<div class="social">
-						<ul class="social-share">
-							<li ><a href="contact-us.php"><i class="fa fa-phone"></i></a></li>
-							<li ><a href="https://www.facebook.com/RoyceFernandoOfficial/"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="https://twitter.com/RoyceWFernando"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="https://www.youtube.com/channel/UCwiLluuQWuQTROY9ZEaGOyw"><i class="fa fa-youtube"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div><!--/.container-->
-	</div><!--/.top-bar-->
+        <nav id="nav_bar_top" class="navbar navbar-inverse" role="banner" style="background-color:#3c763d;">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.php"><img src="images/ico/<?php echo getImageTranslation("rf",$lan);?>.png" class="img-responsive rf-image" style="width:300px; margin-top:7px;" alt="logo"></a>
+                </div>
 
-    <nav class="navbar navbar-inverse" role="banner" style="background-color:#3c763d;">
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
+                        <li class="active"><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                        <li><a href="news.php"><?php echo translate("News",$lan);?></a></li>
+                        <li><a href="mystory.php"><?php echo translate("My Story",$lan);?></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo translate("Gallery",$lan);?><i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="privategallery.php"><?php echo translate("Private Gallery",$lan);?></a></li>
+                                <li><a href="publicgallery.php"><?php echo translate("Public Gallery",$lan);?></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav ><!--/nav-->
+
+    </header><!--/header-->
+
+    <section id="about-us">
+            <div class="container">
+                <div class="center wow fadeInDown">
+                    <h2><?php echo translate("My Biography",$lan);?></h2>
+                    <p class="lead" style="text-align:justify;"><?php echo getPara("para4",$lan);?></p>
+                </div>
+                <!-- about us slider -->
+            </div><!--/.container-->
+        </section><!--/about-us-->
+
+
+    <footer id="footer" class="midnight-blue" style="background-color:#3c763d;">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.php"><img src="images/ico/<?php echo getImageTranslation("rf",$lan);?>.png" class="img-responsive rf-image" style="width:300px; margin-top:7px;" alt="logo"></a>
-            </div>
-
-            <div class="collapse navbar-collapse navbar-right">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
-                    <li class="active"><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
-                    <li><a href="news.php"><?php echo translate("News",$lan);?></a></li>
-                    <li><a href="mystory.php"><?php echo translate("My Story",$lan);?></a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo translate("Gallery",$lan);?><i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="privategallery.php"><?php echo translate("Private Gallery",$lan);?></a></li>
-                            <li><a href="publicgallery.php"><?php echo translate("Public Gallery",$lan);?></a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
-                </ul>
-            </div>
-        </div><!--/.container-->
-    </nav ><!--/nav-->
-
-</header><!--/header-->
-
-<section id="about-us">
-        <div class="container">
-			<div class="center wow fadeInDown">
-				<h2><?php echo translate("My Biography",$lan);?></h2>
-				<p class="lead"><?php echo getPara("para4",$lan);?></p>
-			</div>
-			<!-- about us slider -->
-		</div><!--/.container-->
-    </section><!--/about-us-->
-
-
-<footer id="footer" class="midnight-blue" style="background-color:#3c763d;">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                &copy; 2016 <a target="_blank" href="index.php" title="Royce Wijitha fernand | Official Web Site"><?php echo translate("Royce Wijitha Fernando",$lan);?></a>. <?php echo translate("All Rights Reserved",$lan);?>.
-            </div>
-            <div class="col-sm-6">
-                <ul class="pull-right">
-                    <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
-                    <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
-                    <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
-                </ul>
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2016 <a target="_blank" href="index.php" title="Royce Wijitha fernand | Official Web Site"><?php echo translate("Royce Wijitha Fernando",$lan);?></a>. <?php echo translate("All Rights Reserved",$lan);?>.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="index.php"><?php echo translate("Home",$lan);?></a></li>
+                        <li><a href="biography.php"><?php echo translate("Biography",$lan);?></a></li>
+                        <li><a href="contact-us.php"><?php echo translate("Contact",$lan);?></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</footer><!--/#footer-->
-    
+    </footer><!--/#footer-->
+</div>
 
     <script src="js/jquery.js"></script>
+    <script src="js/nav_fixed.js"></script>
     <script type="text/javascript">
         $('.carousel').carousel()
     </script>

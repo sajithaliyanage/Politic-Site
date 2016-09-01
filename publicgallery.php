@@ -31,7 +31,9 @@ $result = $conn->query($sql);
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
-<body>
+<body class="homepage" style="overflow-x: hidden; background-color: #545454">
+<div class="container" style="background-color: #ffffff;padding-left: 0px;padding-right: 0px;">
+
 
 <header id="header">
     <div class="top-bar" style="background-color:#255625;">
@@ -40,9 +42,9 @@ $result = $conn->query($sql);
                 <div class="col-sm-6 col-xs-4">
                     <a href="setlanguage.php?language=SI">සිංහල</a>
                     <span style="color: #4cae4c;">|</span>
-                    <a href="setlanguage.php?language=EN">தமிழ்</a>
+                    <!--<a href="setlanguage.php?language=EN">தமிழ்</a>
                     <span style="color: #4cae4c;">|</span>
-                    <a href="setlanguage.php?language=EN">English</a>
+                    <a href="setlanguage.php?language=EN">English</a>-->
                 </div>
                 <div class="col-sm-6 col-xs-8">
                     <div class="social">
@@ -95,7 +97,7 @@ $result = $conn->query($sql);
         <div class="container">
             <div class="center">
                <h2><?php echo translate("Public Gallery ",$lan);?></h2>
-               <p class="lead"><?php echo getPara("para5",$lan);?></p>
+               <p class="lead"><?php //echo getPara("para5",$lan);?></p>
             </div>
 
             <div class="row">
@@ -139,8 +141,9 @@ $result = $conn->query($sql);
         </div>
     </div>
 </footer><!--/#footer-->
-
+</div>
     <script src="js/jquery.js"></script>
+<script src="js/nav_fixed.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
