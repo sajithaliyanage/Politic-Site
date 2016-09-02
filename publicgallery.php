@@ -36,7 +36,7 @@ $result = $conn->query($sql);
 
 
 <header id="header">
-    <div class="top-bar" style="background-color:#255625;">
+    <div class="top-bar" style="background-color:#255625;height: 162px;background-image: url('images/royce.png');">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-xs-4">

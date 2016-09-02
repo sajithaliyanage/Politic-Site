@@ -34,7 +34,7 @@ include_once('language_translate.php');
 <div class="container" style="background-color: #ffffff;padding-left: 0px;padding-right: 0px;">
 
 <header id="header">
-    <div class="top-bar" style="background-color:#255625;">
+    <div class="top-bar" style="background-color:#255625;height: 162px;background-image: url('images/royce.png');">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-xs-4">

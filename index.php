@@ -43,7 +43,7 @@ $result2 = $query->fetchAll();//$conn->query($sql2);
 <body class="homepage" style="overflow-x: hidden; background-color: #545454">
     <div class="container" style="background-color: #ffffff;padding-left: 0px;padding-right: 0px;">
         <header id="header"  style="">
-            <div class="top-bar" style="background-color:#255625;height: 165px;">
+            <div class="top-bar" style="background-color:#255625;height: 162px;background-image: url('images/royce.png');">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-xs-4">
