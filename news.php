@@ -108,14 +108,17 @@ $result = $query->fetchAll();//$conn->query($sql);
 <section id="blog" class="container">
         <div class="blog">
             <div class="row">
-                 <div class="col-xs-10 col-xs-offset-1">
+                 <div class="col-xs-10 col-xs-offset-1" style="margin-top: 10px;">
+                     <div style="margin-bottom:10px;border-radius: 1px;border: 2px solid #d4d0d0;">
+
+
                      <?php
                      if (count($result) > 0) {
                          // output data of each row
                          foreach($result as $row){
                          //while($row = $result->fetch_assoc()) {
                              echo "<div class=\"blog-item\">
-                        <div class=\"row\">
+                        <div class=\"row\" style='margin-top: 10px;margin-left: 5px;margin-right: 5px;'>
                             <div class=\"col-xs-12 col-sm-2 text-center\">
                                 <div class=\"entry-meta\">
                                     <span id=\"publish_date\">".$row['date']."</span>
@@ -131,27 +134,28 @@ $result = $query->fetchAll();//$conn->query($sql);
                                 <a href=\"#\"><img class=\"img-responsive img-blog\" src='admin/uploads/".$row['headimage']."' width=\"100%\" alt=\"\" /></a>
                             </div>
                         </div>
-                        <hr>
+                        <hr style='margin-bottom:0px;'>
                     </div><!--/.blog-item-->";
                          }
                      }
 
                      ?>
+                         <div class="stripe-1" style="width: 100%;height: 10px;">
+                             <!--
+                             <center>
+                                 <ul class="pagination pagination-lg">
+                                     <li><a href="#"><i class="fa fa-long-arrow-left"></i><?php echo translate("Previous Page",$lan);?></a></li>
+                                     <li class="active"><a href="#">1</a></li>
+                                     <li><a href="#">2</a></li>
+                                     <li><a href="#">3</a></li>
+                                     <li><a href="#">4</a></li>
+                                     <li><a href="#">5</a></li>
+                                     <li><a href="#"><?php echo translate("Next Page",$lan);?><i class="fa fa-long-arrow-right"></i></a></li>
+                                 </ul>
+                             </center>-->
+                         </div>
 
-
-
-                      <center>
-                          <ul class="pagination pagination-lg">
-                              <li><a href="#"><i class="fa fa-long-arrow-left"></i><?php echo translate("Previous Page",$lan);?></a></li>
-                              <li class="active"><a href="#">1</a></li>
-                              <li><a href="#">2</a></li>
-                              <li><a href="#">3</a></li>
-                              <li><a href="#">4</a></li>
-                              <li><a href="#">5</a></li>
-                              <li><a href="#"><?php echo translate("Next Page",$lan);?><i class="fa fa-long-arrow-right"></i></a></li>
-                          </ul><!--/.pagination-->
-                      </center>
-
+                     </div>
                 </div><!--/.col-md-8-->
             </div><!--/.row-->
         </div>

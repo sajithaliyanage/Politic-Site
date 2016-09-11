@@ -1,3 +1,9 @@
+<?php
+include_once("php/checklogin.php");
+if(!$islogged || $user != "admin"){
+    header( 'Location:index.php' ) ;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,6 +70,9 @@
                 <ul class="nav navbar-nav side-nav">
                     <li >
                         <a href="profile.php"><i class="fa fa-fw fa-dashboard"></i>New News</a>
+                    </li>
+                    <li>
+                        <a href="youtube.php"><i class="fa fa-fw fa-bar-chart-o"></i>Youtube Videos</a>
                     </li>
                     <li>
                         <a href="pri.php"><i class="fa fa-fw fa-bar-chart-o"></i>Private Photoes</a>

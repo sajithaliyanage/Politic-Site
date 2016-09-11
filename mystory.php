@@ -117,9 +117,10 @@ include_once('language_translate.php');
                                 <div id="collapseOne1" class="panel-collapse collapse in">
                                     <div class="panel-body">
                                         <div class="media accordion-inner">
+                                            <!--
                                             <div class="pull-left">
                                                 <img class="img-responsive" src="images/accordion1.png">
-                                            </div>
+                                            </div>-->
                                             <div class="media-body">
                                                 <p><?php echo getPara("para8",$lan);?></p>
                                             </div>

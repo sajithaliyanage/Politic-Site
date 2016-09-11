@@ -1,6 +1,11 @@
 <?php
 include('config.php');
 
+include_once("checklogin.php");
+if(!$islogged || $user != "admin"){
+    header( 'Location:../index.php' ) ;
+}
+
 $name = utf8_encode($_POST['heading']);
 $lan = $_POST['language'];
 $date= $_POST['date'];

@@ -2114,7 +2114,7 @@ ul.faq li > div h3 {
 .blog-item {
   border-radius: 0;
   overflow: hidden;
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
 }
 
 .blog .blog-item .img-blog {
@@ -2532,5 +2532,15 @@ shortcodes page css
      position: fixed;
 }
 
+.stripe-1 {
+    color: white;
+    background: repeating-linear-gradient(
+            45deg,
+            rgba(96, 109, 188, 0),
+            rgba(58, 66, 117, 0.11) 5px,
+            rgba(63, 64, 127, 0.27) 5px,
+            rgba(17, 17, 35, 0.41) 5px
+    );
+}
 
 

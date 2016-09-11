@@ -15,6 +15,11 @@ $query = $pdo->prepare($sql2);
 $query->execute(array('lan'=>$lan));
 $result2 = $query->fetchAll();//$conn->query($sql2);
 
+$sql2 = "SELECT * FROM videos";
+$query = $pdo->prepare($sql2);
+$query->execute();
+$result_vids = $query->fetchAll();//$conn->query($sql2);
+
 ?>
 
 <!DOCTYPE html>
@@ -158,7 +163,7 @@ $result2 = $query->fetchAll();//$conn->query($sql2);
         */
         ?>
         <section id="missionvisson" style="padding:0px 0px!important;">
-            <div class="container-fluid" style="background-color:#67b168; color:#FFFFFF; ">
+            <div class="container-fluid" style="background-color:#3c763d; color:#FFFFFF; ">
                 <div class="row" style="padding:50px 0px;margin-left:0px !important; margin-right: 0px !important;">
                     <div class="col-sm-6 col-xs-12">
                         <h2 style="text-align:center; color:#FFFFFF; "><b><?php echo translate("My Mission",$lan);?></b></h2>
@@ -186,6 +191,14 @@ $result2 = $query->fetchAll();//$conn->query($sql2);
 
                                 <h3><b><?php echo translate("Youtube Channel",$lan);?></b></h3>
                                 <hr>
+                                <?php
+                                foreach($result_vids as $rs){
+                                    $link = $rs['link'];
+                                    echo "<div><iframe src='$link' style='width:100%; height:auto;'></iframe></div>";
+                                }
+
+                                ?>
+                                <!--
                                 <div>
                                     <iframe src="http://www.youtube.com/embed/playlist?list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:auto;"></iframe>
                                 </div>
@@ -195,6 +208,13 @@ $result2 = $query->fetchAll();//$conn->query($sql2);
                                 <div>
                                     <iframe src="http://www.youtube.com/embed/watch?v=BFbFFHiOAmU&index=4&list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:auto;"></iframe>
                                 </div>
+                                <div>
+                                    <iframe src="http://www.youtube.com/embed/watch?v=BFbFFHiOAmU&index=4&list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:auto;"></iframe>
+                                </div>
+                                <div>
+                                    <iframe src="http://www.youtube.com/embed/watch?v=BFbFFHiOAmU&index=4&list=UUwiLluuQWuQTROY9ZEaGOyw" style="width:100%; height:auto;"></iframe>
+                                </div>
+                                -->
                             </div>
                             <div class="col-sm-9 col-xs-8">
                                 <div class="row">

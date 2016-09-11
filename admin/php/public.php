@@ -1,6 +1,9 @@
 <?php
 include("config.php");
-
+include_once("checklogin.php");
+if(!$islogged || $user != "admin"){
+    header( 'Location:../index.php' ) ;
+}
 $target_dir = "../uploads/public/";
 
 if(!empty($_FILES['fileToUpload']['name'])) {
