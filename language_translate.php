@@ -79,18 +79,19 @@ $paragraphs = array(
     "para3_SI"=>"ගම් මට්ටමේ බිම් මට්ටමේ කසල සෝධකයාත්, කම්රුවාත්, රියදුරාත්, කාර්මිකයාත්, ධිවරයාත්, වෙළෙන්දාත්, ඔවුන් සිටින මට්ටමින් ඉහලට ඔසවා තැබීම",
     //BIOGRAPHY
     "para4_EN"=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et dolore magna aliqua.",
-    "para4_SI"=>'ජයවීර ආරච්චිගේ රොයිස් විජිත ප‍්‍රනාන්‍දු ප‍්‍රථම වතාවට දේශපාලනයට පිවිසියේ
+    "para4_SI"=>'
+<span style="margin-left:15%;"></span><b>ජයවීර ආරච්චිගේ රොයිස් විජිත ප‍්‍රනාන්‍දු  </b>ප‍්‍රථම වතාවට දේශපාලනයට පිවිසියේ
 මීගමුව තුළ චිරාත් කාලයක් පැවති අන්තර් ආගමික සංහිදියාව හා
 මෙම නගරයේ ජීවත්වූවන් අතර පැවති ජනවාර්ගික සුහදතාවය
 දෙදරා යමින් පැවති ආකාරය බලා සිටීමට අපහසු වූ නිසාය.
-ඒ 2005 වසර අගභාගයේ දීය.<br/>
+ඒ 2005 වසර අගභාගයේ දීය.
 
 මීගමුව තූළ කිසිවකු නොසිතූ ආකාරයෙන්
 පාතාල කල්ලි ක‍්‍රියාත්මක වෙන්නට පටන්  ගත්තේ මේ වකවානුවේදීය.
 මහින්ද රාජපක්‍ෂ බලයට පැමිනීමත් සම`ග
 චන්ඩිකම හා මැර බලය දේශපාලන අවිය බවට පරිවර්ථනය වෙමින් තිබුනි.
-පොදු පෙරමුණ ආණ්ඩුවේ ප‍්‍රතිපත්ති මත මෙම වාතාවරනය ගොඩනැගෙමින් පැවතුනි.
-
+පොදු පෙරමුණ ආණ්ඩුවේ ප‍්‍රතිපත්ති මත මෙම වාතාවරනය ගොඩනැගෙමින් පැවතුනි.<br/><br/>
+<span style="margin-left:15%;"></span>
 රොයිස්, තමා ගැන බලාපොරොත්තු කිසිවක් නොමැතිවයි
 එ.ජා.ප. දේශපාලනයට පිවිසෙන්නට අදිටන් කර ගත්තේ.
 
@@ -106,8 +107,8 @@ $paragraphs = array(
 ළමා පරපුර අධ්‍යාපනික වශයෙන් හා ක‍්‍රිඩා කෞශල්‍ය අතින්
 උසස් මට්ටමකට ඔසවා තබන්නටත්,
 රොයිස් එදා සකසා තිබුන සැලසුම් හදවතේ හිරකරගෙන
-නිහ`ඩ වන්නට ඔහුට සිදු විය.
-
+නිහ`ඩ වන්නට ඔහුට සිදු විය.<br/><br/>
+<span style="margin-left:15%;"></span>
 එහෙත් පාලක පක්‍ෂයේ වැරදි ක‍්‍රියාකාරකම් වලට එරෙහි වන බලවේගය බවට
 රොයිස් පත් වුනේ නිරායාසයෙන්මය.
 මීගමුව මහ නගර සභාවේ විපක්‍ෂ නායක ධූරයට
@@ -126,8 +127,8 @@ $paragraphs = array(
 උද්ඝෝෂන කළ රොයිස් නිසා
 වත්මන් බස් නැවතුම් පල ඉදිවූයේ
 වංචා දුෂණයන්ගෙන් පිරී ඉදිකිරීමක් ලෙස බව
-පුරවැසියන්ට හෙලි කළේය.
-
+පුරවැසියන්ට හෙලි කළේය.<br/><br/>
+<span style="margin-left:15%;"></span>
 මීගමුවේ ‘‘රාජපක්‍ෂ උද්‍යානය’’ නමින් ප‍්‍රසිද්ධව පැවති මල්වත්ත,
 1923 දී මීගමුව මහ නගර සභාවට පරිත්‍යාග කළ
 රාජපක්‍ෂ මුදළිතුමාගේ තෑගි ඔප්පුව  නගර සභා සේප්පුවෙන් පිටමංකර,
@@ -151,8 +152,8 @@ $paragraphs = array(
 ඒ විනාශය රටට පෙන්වා දුන්නේ ද රොයිස් විසින්ය.
 එහෙත් අදවනතුරු යථා තත්‍වයට පත්කළ නොහැකිවු
 මීගමු කලපුවේ මත්ෂ්‍ය  අභිජනන ස්වභාවික කේන්‍ද්‍රය
-විනාශ කළ ආකාරයෙන්ම දැක ගතහැකිය.
-
+විනාශ කළ ආකාරයෙන්ම දැක ගතහැකිය.<br/><br/>
+<span style="margin-left:15%;"></span>
 මීගමුව ඒත්තුකාල වෙරළ උද්‍යානයේ
 අනවසර ඉදිකිරීමක් වු නැවක ආකෘතියක් ලෙස තැනු හෝටලය හා
 ඒ හෝටලය තුළ හා ආහ‍්‍රිත වෙරලේ ක‍්‍රියාත්මක වන
@@ -187,8 +188,8 @@ $paragraphs = array(
 පොදු ජන ක‍්‍රිඩා කටයුතු වලට අවහිර කළා පමණක් නොව
 මීගමුව මහ නගර සභාවට සතයක් වත් නොදී,
 එකී පලාත් පාලන ආයතනයේ අවසරයකින් තොරව
-මීගමු පවුල් ගස එම භූමිය කුලියට දී මුදල් ගසා කන ලදී.
-
+මීගමු පවුල් ගස එම භූමිය කුලියට දී මුදල් ගසා කන ලදී.<br/><br/>
+<span style="margin-left:15%;"></span>
 එම ක‍්‍රිඩාංගනයේ තවත් කොටසක්
 මෙලෝ හසරක් මීගමුවට නොකළ දේශපාලකයකු වෙනුවෙන්
 ‘‘ජෙයරාඡ් ප‍්‍රනාන්‍දුපුල්ලේ’’ ක‍්‍රිඩාංගනය නමින් නම් කර
@@ -213,8 +214,8 @@ $paragraphs = array(
 මීගමුව මහ නගර සභාව ඉඩ දුන් අවස්ථාවේ
 ඊට විරුද්ධව රොයිස් ක‍්‍රියා කළේ
 මීගමුව නගරයේ බදු ගෙවන්නන්ගේ
-අයිතිය ආරක්‍ෂා කර දීමටය.
-
+අයිතිය ආරක්‍ෂා කර දීමටය.<br/><br/>
+<span style="margin-left:15%;"></span>
 මීගමුව කුට්ටිදුව වෙරළේ
 අනවසර හා නීතිවිරෝධි ගොඩනැගිල්ලක් ලෙස
 ජපන් ආධාර යටතේ ඉදිකළ
@@ -252,8 +253,8 @@ $paragraphs = array(
 පඩි පේලි අවහිර කර
 කඩ සාප්පු තනන්නට
 තම ඇම්බැට්ටයන්ට නගර සභා පාලකයෝ
-අවසර දීම ගැන විරුද්ධ වූයේ රොයිස් ය.
-
+අවසර දීම ගැන විරුද්ධ වූයේ රොයිස් ය.<br/><br/>
+<span style="margin-left:15%;"></span>
 නාගරික සාප්පු සංකීර්ණයට යාබද
 දුම්රිය දෙපාර්තමේන්තුව සතු ඉඩම
 ව්‍යාපාරිකයන් 50 කට වැඩි පිරිසක් රවටා
@@ -295,11 +296,11 @@ $paragraphs = array(
 කතිරයෙන් ශක්තිය දුන්න මීගමු ජනතාවට
 රොයිස් බොහෝම ගරු කරනවා.
 
-පැරදුනාට ! වැරදුනේ නෑ ! කිවුවෙ රොයිස්
-
-‘‘දිවිහිමියෙන් එ.ජා.ප. සුරකින්න එක්වූ රොයිස් ,
+පැරදුනාට ! වැරදුනේ නෑ ! කිවුවෙ රොයිස්<br/><br/>
+<span style="margin-left:15%;"></span>
+<b>‘‘දිවිහිමියෙන් එ.ජා.ප. සුරකින්න එක්වූ රොයිස් ,
 බුද්ධිමතුන්ගෙ හයියයි, බිම්මට්මෙයි ගම්මට්ටමෙයි ශක්තියයි,
-එක්තැන් කරන බලවේගය වෙන්නම් මතු දා’’ කියා
+එක්තැන් කරන බලවේගය වෙන්නම් මතු දා’’ </b>කියා
 ලිව්ව රොයිස්,
 තම කටයුතු විවිධ බාධක කම්කටොලූ මැද කරගෙන ගොස්
 ආත්ම විශ්වාසය දෙදරවාගෙන සිටි
@@ -328,8 +329,8 @@ $paragraphs = array(
 එම පලාත් සභාවේ සමාරම්භක උත්සවයට සහභාගිවන්නට හා
 මන්ත‍්‍රිවරයකු ලෙස දිවුරුම් දීමට පවා අවස්ථාව සලසා නොදුන් බලධාරීන්
 ඊට පසුව මන්ත‍්‍රිවරයකු ලෙස පලාත් සභා රැුස්වීම්වලට රැුගෙන යනවාට
-බන්‍ධනාගාර රථය ස`දහා මුදල් අයකළ එකම මන්ත‍්‍රිවරයා ලෙස ඉතිහාසයට එක්වුනි.
-
+බන්‍ධනාගාර රථය ස`දහා මුදල් අයකළ එකම මන්ත‍්‍රිවරයා ලෙස ඉතිහාසයට එක්වුනි.<br/><br/>
+<span style="margin-left:15%;"></span>
 මීගමුව මහ නගර සභාවේ මන්ත‍්‍රිකමත් විපක්‍ෂ නායක ධුරයත් අත්හරින්න සිදුවුවත්
 බස්නාහිර පලාත් සභා සේවයට එකතු වු රෝයිස් ගේ
 
@@ -356,8 +357,8 @@ $paragraphs = array(
 
 අල්ලස් ගනිමින්, විවිධ දුෂණන් කරමින් ද, මත්ද්‍රව්‍ය, ළමා අපචාර හෝ ඝණිකා වෘත්තීය ප‍්‍රවර්ධනයට රැුකුල් දෙමින් යමෙකුට ලැබුන ජනවරම අනිසි ලෙස හසුරුවන  ඕනෑම පුද්ගලයකුට හෝ කණ්ඩායමකට එරෙහිව නැගී සිට විරෝධය දැක්වීම ද
 
-රොයිස්ගේ දේශපාලනික ක‍්‍රියාදාමයයි. ඒවාට පුද්ගලික වෛරයක් පදනම් කර නොගත් රොයිස් තම සේවා සහය පතන  ඕනෑම අයකුට උපකාර කරන බව නොපැකිල ප‍්‍රකාශ කරයි.
-
+රොයිස්ගේ දේශපාලනික ක‍්‍රියාදාමයයි. ඒවාට පුද්ගලික වෛරයක් පදනම් කර නොගත් රොයිස් තම සේවා සහය පතන  ඕනෑම අයකුට උපකාර කරන බව නොපැකිල ප‍්‍රකාශ කරයි.<br/><br/>
+<span style="margin-left:15%;"></span>
 අවංකව මීගමුවට ඇලූම් කරන විද්වතුන්ගේ පහස සොයන රොයිස්
 මීගමුවේ සංවර්ධනයට සහ පැවැත්මට පූජක පැවිදි උත්තමයන්ගේ ද විද්‍යාඥයන්ගේ ද පරිසරවේදීන්ගේ ද තාක්‍ෂණවේදීන්ගේ ද වෛද්‍යවේදීන්ගේ ද නීතිවේදීන්ගේ ද  දේශපාලනඥයන්ගේද ගණකාධිකාරීවරුන්ගේද ගරුවරුන්ගේද පරිපාලන නිලධාරීන්ගේද ව්‍යාපාරික ප‍්‍රජාවගේ ද උපදෙස් හා අනුසාශනා සම`ග හිතාදර සහයෝගය අපේක්‍ෂා කරයි.
 
