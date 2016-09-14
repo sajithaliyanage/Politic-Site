@@ -92,7 +92,7 @@ include_once('language_translate.php');
 
     <section id="about-us">
             <div class="container">
-                <div class="center wow fadeInDown">
+                <div class="center wow fadeInDown" style="border:4px solid #8c8c8c; height:2300px; margin-top:40px; margin-bottom:30px; padding-top:20px; ">
                     <h2><?php echo translate("My Biography",$lan);?></h2>
                     <div class="col-xs-12">
                         <p class="lead" style="text-align:justify; margin-top:20px;"><?php echo getPara("para4",$lan);?></p>
